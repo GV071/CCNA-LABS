@@ -2,7 +2,7 @@
 My CCNA networking labs and troubleshooting practice
 Built and configured a 3-router static routing topology in Cisco Packet Tracer to achieve end-to-end connectivity between two LANs across multiple networks. 
 
- What I configured 
+## What I configured 
 
  -IP addressing on PCs and router interfaces 
 
@@ -14,9 +14,45 @@ Built and configured a 3-router static routing topology in Cisco Packet Tracer t
 
 -Troubleshooting connectivity issues using ARP and routing verification 
 
+## Configurations
+Configs 
+## R1
+interface GigabitEthernet0/1
+ ip address 192.168.1.254 255.255.255.0
+ no shutdown
+
+interface GigabitEthernet0/0
+ ip address 192.168.12.1 255.255.255.0
+ no shutdown
+
+ip route 192.168.3.0 255.255.255.0 192.168.12.2
+
+## R2
+interface GigabitEthernet0/0
+ ip address 192.168.12.2 255.255.255.0
+ no shutdown
+
+interface GigabitEthernet0/1
+ ip address 192.168.13.2 255.255.255.0
+ no shutdown
+
+ip route 192.168.1.0 255.255.255.0 192.168.12.1
+ip route 192.168.3.0 255.255.255.0 192.168.13.3
+
+## R3
+interface GigabitEthernet0/0
+ ip address 192.168.13.3 255.255.255.0
+ no shutdown
+
+interface GigabitEthernet0/1
+ ip address 192.168.3.254 255.255.255.0
+ no shutdown
+
+ip route 192.168.1.0 255.255.255.0 192.168.13.2
+
   
 
-Issue encountered 
+## Issue encountered 
 
 Initial ping attempts failed even though the routing configuration was correct. After troubleshooting in simulation mode, the issue was identified as incomplete ARP table population across the routers. 
 
@@ -30,7 +66,7 @@ When the first ICMP packet was sent:
 
  -Some ICMP packets were dropped while ARP resolution completed hop-by-hop 
 
- As a result: 
+## As a result: 
 
  -First few pings failed 
 
@@ -38,7 +74,7 @@ When the first ICMP packet was sent:
 
 -Subsequent pings completed successfully with full connectivity 
 
- Key concepts reinforced 
+ ## Key concepts reinforced 
 
  -Static routing configuration 
 
