@@ -1,0 +1,20 @@
+# Static Routing Lab - 3 Router Topology
+
+## Objective
+Configure static routing between three routers and verify end-to-end connectivity.
+
+## Technologies Used
+- Cisco Packet Tracer
+- Static Routing
+- ICMP
+- ARP
+- IPv4 Addressing
+
+## Issue Encountered
+Initial pings failed despite correct routing configuration.
+
+## Root Cause
+Routers required ARP resolution before forwarding traffic successfully.
+
+## Outcome
+Successfully achieved full connectivity and reinforced understanding of ARP behaviour in routed networks.
